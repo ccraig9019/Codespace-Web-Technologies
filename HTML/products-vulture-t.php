@@ -48,34 +48,13 @@
 			<div class="card-body">
 				<h5 class="card-title">Vulture</h5>
 				<p class="card-text">Hand-pulled screen printed onto Gildan Premium shirts.<br>Artwork by [...].<br>Available in sizes S-XXL.</p>
-				<a href="products-vulture-t.php" class="btn btn-dark">See more</a>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="col-sm">
-		<div class="card" style="width: 20rem;">
-  			<img src="img/black-logo-t.jpg" class="card-img-fluid" alt="Plain red t-shirt">
-			<div class="card-body">
-				<h5 class="card-title">Black logo</h5>
-				<p class="card-text">Hand-pulled screen printed onto Gildan Premium shirts<br>Available in sizes S-XXL.</p>
 				<button type="button" class="btn btn-dark">See more</button>
 			</div>
 		</div>
 	</div>
 
-	<div class="col-sm">
-		<div class="card" style="width: 20rem;">
-  			<img src="img/white-logo-t.jpg" class="card-img-top" alt="Plain white t-shirt">
-			<div class="card-body">
-				<h5 class="card-title">White logo</h5>
-				<p class="card-text">Hand-pulled screen printed onto Gildan Premium shirts<br>Available in sizes S-XXL.</p>
-				<button type="button" class="btn btn-dark">See more</button>
-			</div>
-		</div>
-	</div>
 
+	
   </div><!-- closing row -->
 </div><!-- closing container -->
 
