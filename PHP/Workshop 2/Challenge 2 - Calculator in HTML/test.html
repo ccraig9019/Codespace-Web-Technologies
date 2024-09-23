@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Calculator</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+<?php
+
+$num1 = "";
+$operand = "";
+$num2 = "";
+$result = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $num1 = floatval($_POST["num1"]);
+    $operand = htmlspecialchars($_POST["operand"]);
+    $num2 = floatval($_POST["num2"]);
+    if ($operand == "+") {
+        $result = $num1 + $num2;
+    };
+    elseif ($operand == "‒") {
+        $result = $num1 - $num2;
+    };
+    elseif ($operand == "×") {
+        $result = $num1 * $num2;
+    }
+    elseif ($operand == "÷") {
+        $result = $num1 / $num2;
+    };
+    else {
+        $result = "Please complete all fields."
+    }
+}
+
+?>
+
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
+    <label for="num1">First number</label>&nbsp
+    <input type="number" id="num1" value=""><br><br>
+    <label for="operand">Operand</label>
+    <select name="operand" id="operand">
+        <option value="+">+</option>
+        <option value="‒">‒</option>
+        <option value="×">×</option>
+        <option value="÷">÷</option>
+    </select><br><br>
+    <label for="c">Second number</label>
+    <input type="number" id="num2" value=""><br><br>
+    <button>Submit</button>
+    <output name="result" for="num1"></output>
+  </form>
+
+  </body>
