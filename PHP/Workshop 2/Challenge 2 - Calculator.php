@@ -28,3 +28,8 @@ while(true) {
     }
 
 }
+
+/*Notes for future improvement: could make it able to accept input without spaces. This would probably require a fairly extensive if/else tree to determine
+if the entries in the array $explodedInput are numbers or operands - if they're numbers, append, then determine the operand, then repeat the same 
+for the second number*/ 
+
