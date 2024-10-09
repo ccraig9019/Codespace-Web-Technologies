@@ -13,7 +13,7 @@
     <body>
         <?php include 'includes/nav.php';?>
 
-        <img style="top-padding: -20px" src="images/guitar-effects-pedals.jpg" class="img-fluid" alt="image of effects pedals">
+        
         
         <?php include 'includes/footer.php'; ?>
 

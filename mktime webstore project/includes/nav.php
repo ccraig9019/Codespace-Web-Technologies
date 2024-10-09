@@ -13,7 +13,13 @@
       crossorigin="anonymous">
 
     <style>
-      body {padding-top: 70px;}
+      body {padding-top: 70px;
+           background-image: url("images/guitar-effects-pedals.jpg"); 
+           background-size: cover;
+           background-repeat: no-repeat;
+           background-attachment: fixed;
+           background-position: center;
+          }
       button {padding: 10px 20px;}
       input[type="submit"] {padding: 10px 20px;}
     </style>
@@ -36,9 +42,7 @@
                           </a>
                           <div class="dropdown-menu">
                             <a class="dropdown-item" href="read.php">View products</a>  
-                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="create.php">Add product</a>
-                            <a class="dropdown-item" href="update.php">Edit product</a>
                           </div>
                         </li>
 
