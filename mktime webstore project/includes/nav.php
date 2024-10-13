@@ -6,25 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>MKPedals</title>
 
+    <?php $currentPage = basename($_SERVER['PHP_SELF'], ".php") ?>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" 
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous">
 
-    <style>
-      body {padding-top: 70px;
-           background-image: url("images/guitar-effects-pedals.jpg"); 
-           background-size: cover;
-           background-repeat: no-repeat;
-           background-attachment: fixed;
-           background-position: center;
-          }
-      button {padding: 10px 20px;}
-      input[type="submit"] {padding: 10px 20px;}
-    </style>
+    <!--<link href="style.css" rel="stylesheet">*/-->
   </head>
-  <body>
+  <body style="padding-top: 75px;">
 <!--navbar-->
 <nav style="padding: 10px" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <a class="navbar-brand" href="home.php">MKPedals</a>
@@ -34,10 +26,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="home.php">Home</a>
+                            <a class="nav-link <?php echo ($currentPage == 'home') ? 'active' : ''; ?>" href="home.php" >Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
+                          <a class="nav-link dropdown-toggle <?php echo ($currentPage == 'read' || $currentPage == 'create') ? 'active' : ''; ?>" role="button" data-toggle="dropdown" aria-expanded="false">
                             Products
                           </a>
                           <div class="dropdown-menu">
@@ -47,11 +39,14 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="login.php" class="nav-link">Log in/Register</a>
+                            <a href="login.php" class="nav-link <?php echo ($currentPage == 'login') ? 'active' : ''; ?>">Log in/Register</a>
                         </li>
                 </ul>
             </div>
           </nav>
-<!--end navbar-->
+        <!--end navbar-->
+          <!--<div style="background-image: url(images/background.jpg); width: 100%; height: 100vh; background-repeat: no-repeat; background-size: cover;">
+          </div>-->
+
 
 </body>

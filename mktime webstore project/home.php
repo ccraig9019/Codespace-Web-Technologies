@@ -10,12 +10,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
-    <body>
-        <?php include 'includes/nav.php';?>
-
+    <body class="bg">
         
+    
+            <?php include 'includes/nav.php';?>
+       
+            <h1>TEST</h1>
         
-        <?php include 'includes/footer.php'; ?>
-
+            <?php include 'includes/footer.php'; ?>
+        </div>
     </body>
 </html>

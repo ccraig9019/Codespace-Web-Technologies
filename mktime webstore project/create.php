@@ -1,6 +1,83 @@
 <?php
  include 'includes/nav.php';?>
 
+<?php
+
+if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
+	{
+	  # Connect to the database.
+	  require ('connect_db.php'); 
+
+  # Initialize an error array.
+  $errors = array();
+
+  # Check for item name .
+  if ( empty( $_POST[ 'item_name' ] ) )
+  { $errors[] = 'Enter the item name.' ; }
+  else
+  { $n = mysqli_real_escape_string( $link, trim( $_POST[ 'item_name' ] ) ) ; }
+
+   # Check for manufacturer .
+   if ( empty( $_POST[ 'manufacturer' ] ) )
+   { $errors[] = 'Enter the manufacturer.' ; }
+   else
+   { $m = mysqli_real_escape_string( $link, trim( $_POST[ 'manufacturer' ] ) ) ; }
+
+    # Check for effect type .
+   if ( empty( $_POST[ 'effect_type' ] ) )
+   { $errors[] = 'Enter the effect type.' ; }
+   else
+   { $et = mysqli_real_escape_string( $link, trim( $_POST[ 'effect_type' ] ) ) ; }
+
+  # Check for a item decription.
+  if (empty( $_POST[ 'item_desc' ] ) )
+  { $errors[] = 'Enter the item decription.' ; }
+  else
+  { $d = mysqli_real_escape_string( $link, trim( $_POST[ 'item_desc' ] ) ) ; }
+  
+  # Check for a item image.
+  if (empty( $_POST[ 'item_img' ] ) )
+  { $errors[] = 'Enter the item image.' ; }
+  else
+  { $img = mysqli_real_escape_string( $link, trim( $_POST[ 'item_img' ] ) ) ; }
+  
+  # Check for a item price.
+  if (empty( $_POST[ 'item_price' ] ) )
+  { $errors[] = 'Enter the item image.' ; }
+  else
+  { $p = mysqli_real_escape_string( $link, trim( $_POST[ 'item_price' ] ) ) ; }
+
+	
+   # On success data into my_table on database.
+  if ( empty( $errors ) ) 
+  {
+    $q = "INSERT INTO products (item_name, manufacturer, effect_type, item_desc, item_img, item_price) 
+	VALUES ('$n', '$m', '$et', '$d', '$img', '$p' )";
+    $r = @mysqli_query ( $link, $q ) ;
+    if ($r) { 
+      header("Location: read.php");
+       }
+      # Close database connection.
+      mysqli_close($link); 
+      //exit();
+      
+  }
+   
+  # Or report errors.
+  else 
+  {
+    echo '<p>The following error(s) occurred:</p>' ;
+    foreach ( $errors as $msg )
+    { echo "$msg<br>" ; }
+    echo '<p>Please try again.</p></div>';
+    # Close database connection.
+    mysqli_close( $link );
+	
+  }  
+}
+
+?>
+
 <h1>Add Item</h1>
 	<form action="create.php" method="post" >
 	  <!-- input box for item name  -->
@@ -64,84 +141,5 @@
      <input type="submit" class="btn btn-dark" value="Submit">
 	</form>
 </div>
-
-<?php
-
-if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
-	{
-	  # Connect to the database.
-	  require ('connect_db.php'); 
-
-  # Initialize an error array.
-  $errors = array();
-
-  # Check for item name .
-  if ( empty( $_POST[ 'item_name' ] ) )
-  { $errors[] = 'Enter the item name.' ; }
-  else
-  { $n = mysqli_real_escape_string( $link, trim( $_POST[ 'item_name' ] ) ) ; }
-
-   # Check for manufacturer .
-   if ( empty( $_POST[ 'manufacturer' ] ) )
-   { $errors[] = 'Enter the manufacturer.' ; }
-   else
-   { $m = mysqli_real_escape_string( $link, trim( $_POST[ 'manufacturer' ] ) ) ; }
-
-    # Check for effect type .
-   if ( empty( $_POST[ 'effect_type' ] ) )
-   { $errors[] = 'Enter the effect type.' ; }
-   else
-   { $et = mysqli_real_escape_string( $link, trim( $_POST[ 'effect_type' ] ) ) ; }
-
-  # Check for a item decription.
-  if (empty( $_POST[ 'item_desc' ] ) )
-  { $errors[] = 'Enter the item decription.' ; }
-  else
-  { $d = mysqli_real_escape_string( $link, trim( $_POST[ 'item_desc' ] ) ) ; }
-  
-  # Check for a item image.
-  if (empty( $_POST[ 'item_img' ] ) )
-  { $errors[] = 'Enter the item image.' ; }
-  else
-  { $img = mysqli_real_escape_string( $link, trim( $_POST[ 'item_img' ] ) ) ; }
-  
-  # Check for a item price.
-  if (empty( $_POST[ 'item_price' ] ) )
-  { $errors[] = 'Enter the item image.' ; }
-  else
-  { $p = mysqli_real_escape_string( $link, trim( $_POST[ 'item_price' ] ) ) ; }
-
-	
-   # On success data into my_table on database.
-  if ( empty( $errors ) ) 
-  {
-    $q = "INSERT INTO products (item_name, manufacturer, effect_type, item_desc, item_img, item_price) 
-	VALUES ('$n', '$m', '$et', '$d', '$img', '$p' )";
-    $r = @mysqli_query ( $link, $q ) ;
-    if ($r)
-    { echo '<p>New record created successfully</p>'; }
-  
-    # Close database connection.
-    mysqli_close($link); 
-  
-    //exit();
-
-    header("Location: read.php");
-  }
-   
-  # Or report errors.
-  else 
-  {
-    echo '<p>The following error(s) occurred:</p>' ;
-    foreach ( $errors as $msg )
-    { echo "$msg<br>" ; }
-    echo '<p>Please try again.</p></div>';
-    # Close database connection.
-    mysqli_close( $link );
-	
-  }  
-}
-
-?>
 
 <?php include 'includes/footer.php'; ?>
