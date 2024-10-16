@@ -45,10 +45,10 @@
                         <p class="card-text">'. $row['item_desc'] . '</p>
                         </div>
                         <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><p class="text-center">&pound' . $row['item_price'] . '</p></li>
+                        <li class="list-group-item"><h4 class="text-center">&pound' . $row['item_price'] . '</h4></li>
                         <li class="list-group-item btn btn-dark"><a class="btn btn-dark btn-lg btn-block" href="update.php?id='.$row['item_id'].'">
                         Update</a></li>
-                        <li class="list-group-item"><a class="btn btn-dark" href="delete.php?item_id='.$row['item_id'].'">
+                        <li class="list-group-item"><a class="btn btn-dark btn-sm btn-block" href="delete.php?item_id='.$row['item_id'].'">
                         Delete Item</a></li>
                         </ul>
                         </div>

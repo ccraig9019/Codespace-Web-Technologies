@@ -14,8 +14,10 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous">
 
+    <!--link to my own stylesheet, removed for now to rule out any conflict with Bootstrap-->
     <!--<link href="style.css" rel="stylesheet">*/-->
-  </head>
+
+    </head>
   <body style="padding-top: 75px;">
 <!--navbar-->
 <nav style="padding: 10px" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -45,8 +47,6 @@
             </div>
           </nav>
         <!--end navbar-->
-          <!--<div style="background-image: url(images/background.jpg); width: 100%; height: 100vh; background-repeat: no-repeat; background-size: cover;">
-          </div>-->
-
+      
 
 </body>

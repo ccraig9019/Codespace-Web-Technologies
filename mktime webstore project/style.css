@@ -3,13 +3,14 @@ img[src*="pedals"] {
 }
 
 body {
-    /*background-image: url("images/background.jpg");
+    background-image: url("images/background.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center;*/
+    background-position: center;
+    background-color: none;
 
-    padding-top: 20px;
+    /*padding-top: 20px;*/
    }
 
 button {padding: 10px 20px;}

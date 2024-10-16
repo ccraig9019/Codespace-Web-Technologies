@@ -38,6 +38,12 @@
         <li class="nav-item">
             <a class="nav-link" href="delete.php">Delete</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="login.php">Log in</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="logout.php">Log out</a>
+        </li>
         </ul>
     </div>
     </nav>  

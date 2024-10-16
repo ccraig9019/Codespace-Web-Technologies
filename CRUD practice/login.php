@@ -13,7 +13,7 @@ if ( isset( $errors ) && !empty( $errors ) )
 ?>
 
 
-<form action="login_action.php" method="post>
+<form action="login_action.php" method="post">
     <label for="inputemail">Email</label>
     <input type="text"
            name = "email"
