@@ -3,8 +3,7 @@
 # Access session.
 session_start() ;
 # Redirect if not logged in.
-if ($_SESSION['admin']) { require ('login_tools.php'); load('admin_read.php');}
-else if ( !isset( $_SESSION[ 'user_id' ] ) ) { require ( 'login_tools.php' ) ; load() ; }
+if ( !( $_SESSION[ 'admin' ] ) ) { require ( 'login_tools.php' ) ; load() ; }
 ?>
 <!--End of logged in view only block-->
 
@@ -77,8 +76,10 @@ else if ( !isset( $_SESSION[ 'user_id' ] ) ) { require ( 'login_tools.php' ) ; l
                         </div>
                         <ul class="list-group list-group-flush">
                         <li class="list-group-item"><h4 class="text-center">&pound' . $row['item_price'] . '</h4></li>
-                        <li class="list-group-item btn btn-dark"><a class="btn btn-dark btn-lg btn-block" href="add_to_card.php?id='.$row['item_id'].'">
-                        Add to cart</a></li>
+                        <li class="list-group-item btn btn-dark"><a class="btn btn-dark btn-lg btn-block" href="update.php?id='.$row['item_id'].'">
+                        Update</a></li>
+                        <li class="list-group-item"><a class="btn btn-dark btn-sm btn-block" href="delete.php?item_id='.$row['item_id'].'">
+                        Delete Item</a></li>
                         </ul>
                         </div>
                     </div>';

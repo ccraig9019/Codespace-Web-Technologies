@@ -97,6 +97,16 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
   elseif ($_POST['confirm_password'] != $_POST['password'])
   { $errors[] = 'Passwords do not match.' ;}
   
+  # Check if email address already registered.
+  if ( empty( $errors ) ) {
+    $q = "SELECT user_id FROM users WHERE email='$e'" ;
+    $r = @mysqli_query ( $link, $q ) ;
+    if ( mysqli_num_rows( $r ) != 0 ) {
+        $errors[] = 
+        'Email address already registered. 
+        <a class="alert-link" href="login.php">Sign In Now</a>' ;
+        }
+  }
   	
    # On success data into my_table on database.
   if ( empty( $errors ) ) 
@@ -110,7 +120,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     # Close database connection.
     mysqli_close($link); 
   
-   
+   load("read.php");
 
     
   }

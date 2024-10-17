@@ -26,26 +26,8 @@
               <span class="navbar-toggler-icon"></span>
             </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                  <span style="color: white; font-style: italic">Welcome <?php echo "$_SESSION[first_name]" ?>!</span>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link <?php echo ($currentPage == 'home') ? 'active' : ''; ?>" href="home.php" >Home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle <?php echo ($currentPage == 'read' || $currentPage == 'create') ? 'active' : ''; ?>" role="button" data-toggle="dropdown" aria-expanded="false">
-                            Products
-                          </a>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="read.php">View products</a>  
-                            <a class="dropdown-item" href="create.php">Add product</a>
-                          </div>
-                        </li>
-                        <div class="mx-auto">
-                          <li class="nav-item">
-                              <a href="logout.php" class="nav-link">Log out</a>
-                          </li>
-                        </div>
-                        <li style="color: white;"><?php if ($_SESSION['admin']) {echo "Admin view";}; ?></li>
               </ul>
             </div>
           </nav>
