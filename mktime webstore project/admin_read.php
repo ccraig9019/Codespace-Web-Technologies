@@ -1,12 +1,11 @@
-<!--Logged in view only block-->
+<!--Admin view only block-->
 <?php
 # Access session.
 session_start() ;
 # Redirect if not logged in.
-if ( !( $_SESSION[ 'admin' ] ) ) { require ( 'login_tools.php' ) ; load() ; }
+if ( !isset( $_SESSION[ 'user_id' ] ) || $_SESSION['admin'] == false ) { require ( 'login_tools.php' ) ; load() ; }
 ?>
-<!--End of logged in view only block-->
-
+<!--End of admin view only block-->
 <!DOCTYPE html>
 
 <html>
@@ -40,67 +39,31 @@ if ( !( $_SESSION[ 'admin' ] ) ) { require ( 'login_tools.php' ) ; load() ; }
 
     </head>
     <body>
+    <!--Item filter view form-->
+    <div class="card d-flex col-sm-3" style="background-color: rgba(255, 255, 255, 0.5);">
+        <form method="GET">
+            <label for="effectType">View:</label>
+            <select name="effectType" id="category" style="width: 180px;">
+                <option value="all">All</option>
+                <option value="allAscPrice">Price asc.</option>
+                <option value="allDescPrice">Price desc.</option>
+                <option value="reverb">Reverb</option>
+                <option value="octave">Octave</option>
+                <option value="pitch shifter">Pitch shifter</option>
+                <option value="distortion">Distortion</option>
+                <option value="delay">Delay</option>
+                <option value="fuzz">Fuzz</option>
+            </select>
+            <button type="submit" class="btn btn-dark">Go</button>
+        </form>
+    </div>
+    <?php
 
-        <?php
-
-        include ('includes/nav.php');
-
-        # Open database connection.
-            require ( 'connect_db.php' );
-
-            # Retrieve items from 'products' database table.
-            $q = "SELECT * FROM products" ;
-            $r = mysqli_query( $link, $q ) ;
-            if ( mysqli_num_rows( $r ) > 0 ) {
-            #Initialise counter for the row function
-            $counter = 0;
-            #Contain everything within a container
-            echo '<div class="container">';
-            #Start a row
-            echo'<div class="row">';
-
-            while ( $row = mysqli_fetch_array( $r, MYSQLI_ASSOC ))
-                {
-                    if ($counter % 3 == 0 && $counter !=0) { //If the counter is not 0 and is equal to a multiple of 3 (within Bootstrap's limit of 12, so 3, 6, 9 or 12)
-                        echo '</div><div class ="row">'; //End the current row and start a new one
-                    }
-                echo '
-                    <div class="col-md-4 mx-auto d-flex">
-                        <div class="card" style="width: 30rem;">
-                        <img src='. $row['item_img'].' class="card-img-top" alt="product image">
-                        <div class="card-body">
-                        <h3 class="card-title text-center">' . $row['item_name'] .'</h3>
-                        <h4 class="card-title text-center">' . $row['manufacturer'] .'</h4>
-                        <h5 class="card-subtitle text-center">'.$row['effect_type'].'</h5>
-                        <p class="card-text">'. $row['item_desc'] . '</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><h4 class="text-center">&pound' . $row['item_price'] . '</h4></li>
-                        <li class="list-group-item btn btn-dark"><a class="btn btn-dark btn-lg btn-block" href="update.php?id='.$row['item_id'].'">
-                        Update</a></li>
-                        <li class="list-group-item"><a class="btn btn-dark btn-sm btn-block" href="delete.php?item_id='.$row['item_id'].'">
-                        Delete Item</a></li>
-                        </ul>
-                        </div>
-                    </div>';
-
-                    #increment counter
-                    $counter++;
-        # Close database connection.
-            #mysqli_close($link) ; 
-                }
-                
-                #Close final row
-                echo '</div>';
-                #Close container
-                echo '</div>';
-            }
-            # Or display message.
-            else { echo '<p>There are currently no items in the table to display.</p>
-                ' ; }
-                
-                 
-    include 'includes/footer.php';
+        include ('includes/admin_nav.php');
+        require ('connect_db.php');
+        require ('admin_filter_view.php');
+        include ('includes/footer.php');
+    
     ?>
     
     </body>

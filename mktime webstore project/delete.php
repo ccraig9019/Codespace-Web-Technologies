@@ -1,11 +1,11 @@
-<!--Logged in view only block-->
+<!--Admin view only block-->
 <?php
 # Access session.
 session_start() ;
 # Redirect if not logged in.
-if ( !isset( $_SESSION[ 'user_id' ] ) ) { require ( 'login_tools.php' ) ; load() ; }
+if ( !isset( $_SESSION[ 'user_id' ] ) || $_SESSION['admin'] == false ) { require ( 'login_tools.php' ) ; load() ; }
 ?>
-<!--End of logged in view only block-->
+<!--End of admin view only block-->
 
 
 <?php

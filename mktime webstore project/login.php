@@ -17,7 +17,7 @@ if ( isset( $errors ) && !empty( $errors ) )
     <div class="container justify-content-center">
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <div class="card">
+                <div class="card"  style="background-color: rgba(255, 255, 255, 0.8);">
                     <div class ="card-body">
                         <form method="POST">
                         <div class="login-form">

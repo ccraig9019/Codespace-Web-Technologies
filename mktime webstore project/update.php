@@ -1,15 +1,15 @@
-<!--Logged in view only block-->
+<!--Admin view only block-->
 <?php
 # Access session.
 session_start() ;
 # Redirect if not logged in.
-if ( !isset( $_SESSION[ 'user_id' ] ) ) { require ( 'login_tools.php' ) ; load() ; }
+if ( !isset( $_SESSION[ 'user_id' ] ) || $_SESSION['admin'] == false ) { require ( 'login_tools.php' ) ; load() ; }
 ?>
-<!--End of logged in view only block-->
+<!--End of admin view only block-->
 
 <?php
 #Include navbar
-include ('includes/nav.php');
+include ('includes/admin_nav.php');
 
 if ( $_SERVER['REQUEST_METHOD'] == 'POST') {
     #Connect to the database
@@ -92,7 +92,7 @@ if (empty($errors)) { #If the errors array is empty
 
     }
     ?>
-
+    <div class="container justify-content-center"  style="background-color: rgba(255, 255, 255, 0.8);">
     <h1>Update item:</h1>
 
     <?php
@@ -120,8 +120,8 @@ if (empty($errors)) { #If the errors array is empty
 
     ?>
 
-    <form action="update.php" method="post">
-    <form action="create.php" method="post">
+  <form action="update.php" method="post">
+   
 
         <label for="item_id">Item ID:</label>
         <input type="text"
@@ -185,7 +185,8 @@ if (empty($errors)) { #If the errors array is empty
             value="<?php echo($item_price);?>"><br>
        <!-- submit button -->
        <input type="submit" class="btn btn-dark" value="Submit">
-        </form>
+    </div>
+  </form>
 
         <?php include 'includes/footer.php'; ?>
 

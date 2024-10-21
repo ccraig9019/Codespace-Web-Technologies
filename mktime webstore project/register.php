@@ -1,60 +1,62 @@
 <?php
- include 'includes/nav.php';?>
-
-<h1>Create account</h1>
-	<form action="register.php" method="post" >
-	  <!-- input box for user's first name  -->
-	  <label for="first_name">First name:</label>
-	  <input type="text" 
-        id="first_name" 
-        class="form-control" 
-        name="first_name" 
-        required 
-        value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?> ">
-
-        <!-- input box for user's last name -->  
-	  <label for="last_name">Last name:</label>
+ include 'includes/logged_out_nav.php';?>
+<div class="col-sm-8 d-flex justify-content-center">
+<div class="card col d-flex justify-content-center" style="width: 30rem; background-color: rgba(255, 255, 255, 0.8);">
+  <h1>Create account</h1>
+    <form action="register.php" method="post" >
+      <!-- input box for user's first name  -->
+      <label for="first_name">First name:</label>
       <input type="text" 
-        id="last_name" 
-        class="form-control" 
-        name="last_name" 
-        required 
-        value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>">
-	  </textarea>
+          id="first_name" 
+          class="form-control" 
+          name="first_name" 
+          required 
+          value="<?php if (isset($_POST['first_name'])) echo $_POST['first_name']; ?> ">
 
-      <!-- input box for user's email address -->  
-	  <label for="email">Email address:</label>
-      <input type="email" 
-        id="email" 
-        class="form-control" 
-        name="email" 
-        required 
-        value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
-	  </textarea>
-	  
-	  <!-- input box for user's password -->  
-	  <label for="password">Enter a password:</label>
-	  <input type="password"
-        id="password" 
-        class="form-control" 
-        name="password" 
-        required 
-        value="<?php if (isset($_POST['password'])) echo $_POST['password']; ?>">
-	  </textarea>
-	  
-	 <!-- input box to confirm user's password -->
-	 <label for="confirm_password">Confirm password:</label>
-	 <input type="password" 
-        id="confirm_password" 
-        class="form-control" 
-        name="confirm_password" 
-        required 
-	    value="<?php if (isset($_POST['confirm_password'])) echo $_POST['confirm_password']; ?>">
-	 
-	 
-	  <!-- submit button -->
-     <input type="submit" class="btn btn-dark" value="Submit">
-	</form>
+          <!-- input box for user's last name -->  
+      <label for="last_name">Last name:</label>
+        <input type="text" 
+          id="last_name" 
+          class="form-control" 
+          name="last_name" 
+          required 
+          value="<?php if (isset($_POST['last_name'])) echo $_POST['last_name']; ?>">
+      </textarea>
+
+        <!-- input box for user's email address -->  
+      <label for="email">Email address:</label>
+        <input type="email" 
+          id="email" 
+          class="form-control" 
+          name="email" 
+          required 
+          value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
+      </textarea>
+      
+      <!-- input box for user's password -->  
+      <label for="password">Enter a password:</label>
+      <input type="password"
+          id="password" 
+          class="form-control" 
+          name="password" 
+          required 
+          value="<?php if (isset($_POST['password'])) echo $_POST['password']; ?>">
+      </textarea>
+      
+    <!-- input box to confirm user's password -->
+    <label for="confirm_password">Confirm password:</label>
+    <input type="password" 
+          id="confirm_password" 
+          class="form-control" 
+          name="confirm_password" 
+          required 
+        value="<?php if (isset($_POST['confirm_password'])) echo $_POST['confirm_password']; ?>"><br>
+    
+    
+      <!-- submit button -->
+      <input type="submit" class="btn btn-dark" value="Submit">
+    </form>
+</div>
 </div>
 
 <?php

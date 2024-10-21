@@ -18,10 +18,10 @@
     <!--<link href="style.css" rel="stylesheet">*/-->
 
     </head>
-  <body style="padding-top: 75px;">
+  <body style="padding-top: 75px; background-image: url('images/background.jpg'); background-size: cover; background-attachment: fixed;">
 <!--navbar-->
 <nav style="padding: 10px" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <a class="navbar-brand" href="home.php">MKPedals</a>
+            <a class="navbar-brand" href="read.php">MKPedals</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>

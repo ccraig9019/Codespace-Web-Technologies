@@ -1,14 +1,14 @@
-<!--Logged in view only block-->
+<!--Admin view only block-->
 <?php
 # Access session.
 session_start() ;
 # Redirect if not logged in.
-if ( !isset( $_SESSION[ 'user_id' ] ) ) { require ( 'login_tools.php' ) ; load() ; }
+if ( !isset( $_SESSION[ 'user_id' ] ) || $_SESSION['admin'] == false ) { require ( 'login_tools.php' ) ; load() ; }
 ?>
-<!--End of logged in view only block-->
+<!--End of admin view only block-->
 
 <?php
- include 'includes/nav.php';?>
+ include 'includes/admin_nav.php';?>
 
 <?php
 
@@ -85,70 +85,71 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
   }  
 }
 
-?>
+?> 
+<form action="create.php" method="post" >
+  <div class="container justify-content-center"  style="background-color: rgba(255, 255, 255, 0.8);">
+    <h1>Add Item</h1>
+    
+        <!-- input box for item name  -->
+        <label for="name">Item Name:</label>
+        <input type="text" 
+            id="item_name" 
+            class="form-control" 
+            name="item_name" 
+            required 
+            value="<?php if (isset($_POST['item_name'])) echo $_POST['item_name']; ?> ">
 
-<h1>Add Item</h1>
-	<form action="create.php" method="post" >
-	  <!-- input box for item name  -->
-	  <label for="name">Item Name:</label>
-	  <input type="text" 
-        id="item_name" 
-        class="form-control" 
-        name="item_name" 
-        required 
-        value="<?php if (isset($_POST['item_name'])) echo $_POST['item_name']; ?> ">
+            <!-- input box for product manufacturer -->  
+        <label for="manufacturer">Manufacturer:</label>
+          <input type="text" 
+            id="manufacturer" 
+            class="form-control" 
+            name="manufacturer" 
+            required 
+            value="<?php if (isset($_POST['manufacturer'])) echo $_POST['manufacturer']; ?>">
+        </textarea>
 
-        <!-- input box for product manufacturer -->  
-	  <label for="manufacturer">Manufacturer:</label>
+          <!-- input box for effect type -->  
+        <label for="manufacturer">Effect type:</label>
+          <input type="text" 
+            id="effect_type" 
+            class="form-control" 
+            name="effect_type" 
+            required 
+            value="<?php if (isset($_POST['effect_type'])) echo $_POST['effect_type']; ?>">
+        </textarea>
+        
+        <!-- input box for item description -->  
+        <label for="description">Description:</label>
+        <textarea id="item_desc" 
+            class="form-control" 
+            name="item_desc" 
+            required 
+            value="<?php if (isset($_POST['item_desc'])) echo $_POST['item_desc']; ?>">
+        </textarea>
+        
+      <!-- input box for image path -->
+      <label for="image">Image:</label>
       <input type="text" 
-        id="manufacturer" 
-        class="form-control" 
-        name="manufacturer" 
-        required 
-        value="<?php if (isset($_POST['manufacturer'])) echo $_POST['manufacturer']; ?>">
-	  </textarea>
-
-      <!-- input box for effect type -->  
-	  <label for="manufacturer">Effect type:</label>
-      <input type="text" 
-        id="effect_type" 
-        class="form-control" 
-        name="effect_type" 
-        required 
-        value="<?php if (isset($_POST['effect_type'])) echo $_POST['effect_type']; ?>">
-	  </textarea>
-	  
-	  <!-- input box for item description -->  
-	  <label for="description">Description:</label>
-	  <textarea id="item_desc" 
-        class="form-control" 
-        name="item_desc" 
-        required 
-        value="<?php if (isset($_POST['item_desc'])) echo $_POST['item_desc']; ?>">
-	  </textarea>
-	  
-	 <!-- input box for image path -->
-	 <label for="image">Image:</label>
-	 <input type="text" 
-        id="item_img" 
-        class="form-control" 
-        name="item_img" 
-        required 
-	    value="<?php if (isset($_POST['item_img'])) echo $_POST['item_img']; ?>">
-	 
-	 <!-- input box for item price -->
-	 <label for="price">Price:</label>
-	 <input 
-        type="number" 
-        id="item_price" 
-        class="form-control" 
-        name="item_price" 
-        min="0" step="0.01" 
-        required 
-        value="<?php if (isset($_POST['item_price'])) echo $_POST['item_price']; ?>"><br>
-	  <!-- submit button -->
-     <input type="submit" class="btn btn-dark" value="Submit">
-	</form>
+            id="item_img" 
+            class="form-control" 
+            name="item_img" 
+            required 
+          value="<?php if (isset($_POST['item_img'])) echo $_POST['item_img']; ?>">
+      
+      <!-- input box for item price -->
+      <label for="price">Price:</label>
+      <input 
+            type="number" 
+            id="item_price" 
+            class="form-control" 
+            name="item_price" 
+            min="0" step="0.01" 
+            required 
+            value="<?php if (isset($_POST['item_price'])) echo $_POST['item_price']; ?>"><br>
+        <!-- submit button -->
+        <input type="submit" class="btn btn-dark" value="Submit">
+ </form>
 </div>
 
 <?php include 'includes/footer.php'; ?>
