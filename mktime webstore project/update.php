@@ -160,8 +160,7 @@ if (empty($errors)) { #If the errors array is empty
         <textarea id="item_desc" 
             class="form-control" 
             name="item_desc" 
-            required>
-            <?php echo($item_desc);?>
+            required><?php echo($item_desc);?>
         </textarea>
         
         <!-- input box for image path -->
