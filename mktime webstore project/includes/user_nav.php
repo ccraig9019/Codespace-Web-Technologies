@@ -1,3 +1,11 @@
+<?php
+
+//Access session
+@session_start();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,6 +21,10 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous">
+
+    <!--Bootstrap icons CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+
 
     <!--link to my own stylesheet, removed for now to rule out any conflict with Bootstrap-->
     <!--<link href="style.css" rel="stylesheet">*/-->
@@ -35,6 +47,8 @@
                     
                     </ul>
                     <ul class="navbar-nav  ms-auto">
+                        <li class="nav-item">
+                          <a href="cart.php" class="nav-link"><i class="bi bi-cart"></i> View cart</a>
                         <li class="nav-item">
                             <a href="logout.php" class="nav-link">Log out</a>
                         </li>

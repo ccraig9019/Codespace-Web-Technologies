@@ -1,10 +1,9 @@
 <?php
 
 //Include navbar and session
-include('includes/nav.php');
+include('includes/user_nav.php');
 
-//Redirect if not logged in
-if (!isset($_SESSION['user_id'])) { require ('login_tools.php'); load(); }
+
 
 //Set page title 
 $page_title = 'Cart';
@@ -42,7 +41,7 @@ if (!empty($_SESSION['cart'])) {
     $r = mysqli_query ($link, $q);
 
     //Display HTML
-    echo '<section class="h-100 h-custom" style="background-color: #d3d3d3;">
+    echo '<section class="h-50 h-custom">
            <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
              <div class="col-12">
@@ -67,7 +66,7 @@ if (!empty($_SESSION['cart'])) {
                 <img src=\"{$row['item_img']}\" class=\"img-fluid rounded-3\" alt=\"bass guitar\">
                </div>
                <div class=\"col-md-3 col-lg-3 col-xl-3\">
-                <h6 class=\"text-muted\">Shirt</h6>
+                <h6 class=\"text-muted\">{$row['manufacturer']}</h6>
                 <h6 class=\"text-black mb-0\">{$row['item_name']}</h6>
                </div>
                <div class=\"col-md-3 col-lg-3 col-xl-2 d-flex\">
@@ -102,11 +101,17 @@ if (!empty($_SESSION['cart'])) {
 }
 else {
     //Or display a message
-    echo '<p>Your cart is currently empty.</p>';
+    echo "<div class=\"container\">
+            <div class=\"alert alert-secondary\" role=\"alert\">
+                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                    <span aria-hidden=\"true\">&times;</span>
+                </button>
+                <p>Your cart is currently empty.</p>
+                <p><a href=\"read.php\">Continue Shopping</a> | <a href=\"logout.php\">Logout</a></p>
+            </div>
+        </div>";
     }
 
-//Create navigation links
-echo '<p><a href="read.php">Continue shopping</a> | <a href="forum.php">Forum</a> | <a href="home.php">Home</a> | <a href = "goodbye.php">Log out</a></p>';
 
 //include footer
 include ('includes/footer.php');

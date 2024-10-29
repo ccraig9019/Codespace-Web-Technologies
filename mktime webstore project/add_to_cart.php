@@ -1,7 +1,7 @@
 <?php
 
 //Include the session-cart file
-include('includes/nav.php');
+include('includes/user_nav.php');
 
 //Checks to see if the id attribute is set in the URL (which it should be from the 'Add to cart' button) and assigns it to a variable
 if (isset($_GET['id'])) {$id = $_GET['id'];}
