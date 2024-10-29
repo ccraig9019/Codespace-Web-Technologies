@@ -40,7 +40,7 @@
                     </div>
                     <ul class="list-group">
                     <li class="list-group-item" style="background-color: rgba(255, 255, 255, 0.5);"><h4 class="text-center">&pound' . $row['item_price'] . '</h4></li>
-                    <li class="list-group-item btn btn-dark"><a class="btn btn-dark btn-lg btn-block" href="add_to_cart.php?id='.$row['item_id'].'">
+                    <li class="list-group-item btn btn-dark"><a name="'.$row['item_name'].'button" class="btn btn-dark btn-lg btn-block" href="add_to_cart.php?id='.$row['item_id'].'">
                     Add to cart</a></li>
                     </ul>
                 </div>

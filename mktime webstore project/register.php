@@ -1,5 +1,7 @@
 <?php
- include 'includes/logged_out_nav.php';?>
+ include ('includes/logged_out_nav.php');
+ include ('login_tools.php');
+ ?>
 <div class="col-sm-8 d-flex justify-content-center">
 <div class="card col d-flex justify-content-center" style="width: 30rem; background-color: rgba(255, 255, 255, 0.8);">
   <h1>Create account</h1>
@@ -117,12 +119,17 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 	VALUES ('$fn', '$ln', '$e', '$p' )";
     $r = @mysqli_query ( $link, $q ) ;
     if ($r)
-    { echo '<h3>Account created successfully</h3>'; }
+    { echo '<div class="card"  style="background-color: rgba(255, 255, 255, 0.8);">
+              <div class="card-body">
+                <h3>Account created successfully</h3>
+                <a href="login.php">Log in now</a>
+              </div>
+            </div>'; }
   
     # Close database connection.
     mysqli_close($link); 
   
-   load("read.php");
+   
 
     
   }

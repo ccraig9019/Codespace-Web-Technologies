@@ -4,9 +4,11 @@ include 'includes/logged_out_nav.php' ;
 # Display any error messages if present.
 if ( isset( $errors ) && !empty( $errors ) )
 {
- echo '<h3 id="err_msg">Oops! There was a problem:</h3>' ;
- foreach ( $errors as $msg ) { echo " - $msg<br>" ; }
- echo '<p>Please try again or <a href="register.php">Register</a></p>' ;
+ echo '<div class="card"  style="background-color: rgba(255, 255, 255, 0.8);">
+        <div class="card-body">
+            <h3 id="err_msg">Oops! There was a problem:</h3>' ;
+            foreach ( $errors as $msg ) { echo " - $msg<br>" ; }
+ echo '<p name="tryagain">Please try again or <a name="register_link" href="register.php">Register</a></p></div></div>' ;
 }
 
 
